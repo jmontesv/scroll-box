@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');  
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); 
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +7,43 @@
 }
 body {
     height: 100vh;
-    background-color: darkslategray;
+    background: -webkit-linear-gradient(top, rgba(5,127,158,1) 0%, rgba(113,200,222,1) 100%);
     display: flex;
+    font-family: 'Bungee', cursive;
+    font-size: .7rem;
+    color: rgba(17,17,17,1);
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-size: 5rem;
+    padding: 4rem;
+    text-align: center;
+}
+.padding {
+    position: relative;
+    background-color: rgba(17,17,17,.7);
+    border-radius: 3px;
+    padding-left: 5px;
+}
+.padding .shadow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(17,17,17);
+    z-index: 1;
+    opacity: 0;
+}
 .scrollbox {    
     position: relative;
-    background-color: rgba(255,255,255,.5);
     width: 675px;
-    height: 144px;
+    height: 144px; 
     overflow: hidden;
 }
 .scrollbox::after {
@@ -26,11 +53,10 @@ body {
     transform: translatex(-50%);
     top: 0;
     bottom: 0;
-    background: blue;    
+    background: #f7d865;   
     width: 2px;
 }
 .items {
-    border: 1px solid red;
     display: flex;
     height: 100%;
     align-items: center;
@@ -42,9 +68,10 @@ body {
     width: max-content; /* Para que el ancho del contenedor dependa del número de items y los items se acoplen sobre el eje x  */
 }
 .item {
+    border-radius: 3px;
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(20,228,255,1) 100%);
     width: 124px;
     height: 124px;
-    border: 1px solid  orange;
     margin: 5px;
     text-align: center;
 }
@@ -56,8 +83,8 @@ body {
 .items-disponibles {
     width: 675px;
     margin-top: 30px;
-    border: 1px solid yellow;
     display: flex;
+    flex-wrap: wrap;
 }
 .item.cabecera {
     padding: 5px;
@@ -67,7 +94,21 @@ body {
     height: 94px;
 }
 button {
+    color: rgba(17,17,17,1);
     cursor: pointer;
+    font-family: 'Bungee', cursive;
+    font-size: .5rem;
     margin: 10px;
-    padding: 5px 20px; 
+    padding: 5px 40px; 
+    border-radius: 40px;
+    transition: all .5s;
+    background: #f7d865;
+    border: none;
+}
+button:focus {
+    outline: none;;
+}
+button:hover{
+    background: #f2c829;
+    box-shadow: 1px 1px 8px 3px #f2c829;
 }
