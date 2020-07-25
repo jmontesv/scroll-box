@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background-color: darkslategray;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scrollbox {    
+    position: relative;
+    background-color: rgba(255,255,255,.5);
+    width: 675px;
+    height: 144px;
+    overflow: hidden;
+}
+.scrollbox::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    top: 0;
+    bottom: 0;
+    background: blue;    
+    width: 2px;
+}
+.items {
+    border: 1px solid red;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: auto ;
+    position: relative;
+    left: 0;
+    transition: left 5s ease;
+    will-change: auto left;
+    width: max-content; /* Para que el ancho del contenedor dependa del número de items y los items se acoplen sobre el eje x  */
+}
+.item {
+    width: 124px;
+    height: 124px;
+    border: 1px solid  orange;
+    margin: 5px;
+    text-align: center;
+}
+.scrollbox:hover .items {
+     /* El cálculo del scrooll del div sería 134 (ancho item) *
+    n items (n items hasta llegar al item ganador) - 2 ( para posicionarle en el centro del scrollbox) el
+    ancho del item mas el margin que tiene a los lados (134px) multiplicado por los items */
+}
+.items-disponibles {
+    width: 675px;
+    margin-top: 30px;
+    border: 1px solid yellow;
+    display: flex;
+}
+.item.cabecera {
+    padding: 5px;
+}
+.item img {
+    width: 92px;
+    height: 94px;
+}
+button {
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 20px; 
+}
