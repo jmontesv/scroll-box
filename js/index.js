@@ -12,9 +12,9 @@ for (let i=0; i <  numElementosDiponibles * 7 ; i++) {
         scrollBox.appendChild(element.cloneNode(true));
     });   
 }
-function animacionWinner(nDivsAnteriores, zIndex, opacity){
+function animacionWinner(nDivsAnteriores, zIndex, display){
     scrollBox.querySelector(`div:nth-child(${nDivsAnteriores + 1})`).style.zIndex = `${zIndex}`;
-    document.querySelector('.padding .shadow').style.opacity = `${opacity}`;
+    document.querySelector('.padding .shadow').style.display = `${display}`;
 }
 
 function calcularGanador() {
@@ -32,7 +32,7 @@ function aplicarLeft() {
 button
 .addEventListener('click', () => {
         button.disabled = true;
-        if (nDivsAnterioresAlGanador) animacionWinner(nDivsAnterioresAlGanador, 0, 0 );
+        if (nDivsAnterioresAlGanador) animacionWinner(nDivsAnterioresAlGanador, 0, 'none' );
         scrollBox.style.transition = 'left 0s ease';
         scrollBox.style.left = '0px';
         setTimeout(() => {aplicarLeft()}, 10);
@@ -40,5 +40,5 @@ button
 // Habilitamos el botón de nuevo cuando la animación concluye, para no poder rollear mientras estás todavía en el proceso     
 scrollBox.addEventListener('transitionend' , () => {
     button.disabled = false;
-    animacionWinner(nDivsAnterioresAlGanador, 10, .9);
+    animacionWinner(nDivsAnterioresAlGanador, 15 , 'block');
 });
